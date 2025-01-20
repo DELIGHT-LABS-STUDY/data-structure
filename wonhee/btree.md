@@ -21,7 +21,7 @@ B-tree는 균형 트리로서, 모든 리프 노드가 같은 레벨에 있음
 
 각 노드가 갖는 키의 개수가 정해진 차수를 가짐 - 이걸 유지하기 위해 삽입/삭제 시 높이 조정 발생
 
-각 노드가 갖는 자식의 최대 수 = degree 차수
+각 노드가 갖는 자식의 최대 수 = degree 차수 (M)
 
 M차 B트리 = 노드가 최대 M/2개부터 M개까지의 key를 가질 수 있는 B트리
 
@@ -79,3 +79,20 @@ B+tree:
 ```
 
 따라서 범위 검색에 매우 효율적임
+
+```
+                  [27, 33]                # Root Node
+                  /   |   \
+                 /    |    \
+                /     |     \
+       [27,27]     [30]    [33]          # Internal Nodes
+       /  |  \      |  \      \
+      /   |   \     |   \      \
+  [27]  [27]  [30] [33]        # Leaf Nodes (Data & Pointers)
+  Go    Lee   Park  Lee
+  Jeam  Sak   Siyh  Wonh
+  in          un    ee
+
+  // 리프 노드들은 실제로는 이렇게 연결됨
+  [Go Jeamin, 27] -> [Lee Sak, 27] -> [Park Siyun, 30] -> [Lee Wonhee, 33]
+```
